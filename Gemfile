@@ -45,6 +45,7 @@ group :development do
   gem 'quiet_assets'
   gem 'capistrano'
   gem 'capistrano_colors'
+  gem 'parallel_tests'
 
   # Use zeus and guard gems to speed up development
   # Run 'zeus start' and 'bundle exec guard' to get going

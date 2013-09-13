@@ -29,10 +29,14 @@ before_install:
 before_script:
   - sh -c "cp config/database.$DB.yml config/database.yml"
   - sh -c "if [ \"$DB\" = 'postgres' ]; then psql -c 'create database fat_free_crm_test;' -U postgres; fi"
+  - sh -c "if [ \"$DB\" = 'postgres' ]; then psql -c 'create database fat_free_crm_test2;' -U postgres; fi"
   - sh -c "if [ \"$DB\" = 'mysql' ]; then mysql -e 'create database fat_free_crm_test;'; fi"
+  - sh -c "if [ \"$DB\" = 'mysql' ]; then mysql -e 'create database fat_free_crm_test2;'; fi"
+  - "bundle exec rake db:schema:load"
+  - "TEST_ENV_NUMBER=2 bundle exec rake db:schema:load"
 
 # Run specs
-script: "bundle exec rake"
+script: "bundle exec rake parallel:spec\\[2\\]"
 # Run specs & acceptance tests, and ensure that assets can compile without errors
 # script: "bundle exec rake && RAILS_ENV=production bundle exec rake assets:precompile:primary"
 

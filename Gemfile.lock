@@ -162,6 +162,9 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.0)
       mime-types
+    parallel (0.8.1)
+    parallel_tests (0.15.3)
+      parallel
     pg (0.14.1)
     polyamorous (0.5.0)
       activerecord (~> 3.0)
@@ -339,6 +342,7 @@ DEPENDENCIES
   nokogiri
   paper_trail
   paperclip
+  parallel_tests
   pg
   premailer
   prototype-rails

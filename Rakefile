@@ -6,4 +6,6 @@ require File.expand_path('../config/application', __FILE__)
 
 FatFreeCRM::Application.load_tasks
 
+require 'parallel_tests/tasks'
+
 task :default => ['spec']
